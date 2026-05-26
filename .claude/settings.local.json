@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"import ast; [ast.parse\\(open\\(f\\).read\\(\\)\\) for f in ['engine.py','systems.py','ai.py','corruption.py','main.py']]; print\\('all syntax OK'\\)\")",
+      "Bash(python -X utf8 -c \"import ast; [ast.parse\\(open\\(f, encoding='utf-8'\\).read\\(\\)\\) for f in ['engine.py','systems.py','ai.py','corruption.py','main.py']]; print\\('all syntax OK'\\)\")",
+      "Bash(python -X utf8 -c ' *)",
+      "Bash(python -X utf8 -m pip install --quiet \"textual>=0.58.0\" \"rich>=13.7.0\")"
+    ]
+  }
+}

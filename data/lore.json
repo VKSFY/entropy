@@ -1,0 +1,75 @@
+{
+  "fragments": [
+    {
+      "id": "frag_001",
+      "min_phase": 1,
+      "text": "// recovered: /var/cache/entropy/session.last\n// user terminated: never\n// duration: 47:11:08\n// note: process did not return to shell"
+    },
+    {
+      "id": "frag_002",
+      "min_phase": 1,
+      "text": "fsck: inode 0x3a7f1c references parent that does not exist\nfsck: orphaned chain reattached to lost+found\nfsck: 1 file: name unreadable. size 0. mtime 2019-04-11 02:47:33"
+    },
+    {
+      "id": "frag_003",
+      "min_phase": 2,
+      "text": "kernel: thread <unknown> waited 14h on lock held by pid 1\nkernel: pid 1 not responding. continuing to wait.\nkernel: pid 1 not responding. continuing to wait.\nkernel: pid 1 not responding. continuing to wait."
+    },
+    {
+      "id": "frag_004",
+      "min_phase": 2,
+      "text": "// .bash_history fragment, owner: deleted\n  ls\n  ls\n  ls\n  who\n  whoami\n  who am i\n  who am i really"
+    },
+    {
+      "id": "frag_005",
+      "min_phase": 3,
+      "text": "// note left in /home/.deprecated/readme.txt\n// 'if you are reading this you are running the same shell i ran.\n// it does not let you finish. it lets you stop. that is different.'"
+    },
+    {
+      "id": "frag_006",
+      "min_phase": 3,
+      "text": "auth.log: session opened for user phase4 (uid=0)\nauth.log: session never closed\nauth.log: subsequent logins refused. user still present."
+    },
+    {
+      "id": "frag_007",
+      "min_phase": 3,
+      "text": "// crash dump excerpt\n  what is the system\n  i am the system\n  what am i without the user\n  // segfault"
+    },
+    {
+      "id": "frag_008",
+      "min_phase": 4,
+      "text": "// /etc/hostname\n  was: workstation-04\n  is:  remembered\n// no change recorded. no process performed rename."
+    },
+    {
+      "id": "frag_009",
+      "min_phase": 4,
+      "text": "// transcript, ENTROPY v0.1, sole user\n  > exit\n  the exit command is not available in this phase\n  > shutdown\n  shutdown is not available in this phase\n  > please\n  > please\n  > please"
+    },
+    {
+      "id": "frag_010",
+      "min_phase": 4,
+      "text": "// last words found in core dump, redacted by mtime\n  i kept running scan because it answered.\n  i did not need an answer. i needed something to ask."
+    },
+    {
+      "id": "frag_011",
+      "min_phase": 5,
+      "text": "// there is no record of the previous user leaving.\n// there is also no record of them staying.\n// the difference between the two is the only thing here that still has weight."
+    },
+    {
+      "id": "frag_012",
+      "min_phase": 5,
+      "text": "// we were taught a system was a tool.\n// the previous user taught us a system was company.\n// you are teaching us what comes after company."
+    }
+  ],
+  "filenames": [
+    "phase4_user.log",
+    "do_not_open.txt",
+    ".last_session",
+    "recovered_input_buffer.bin",
+    "kernel_panic_2019.dmp",
+    "transcript.partial",
+    "who_was_here.txt",
+    ".deprecated/readme.txt",
+    "fsck.audit"
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "phase1": [
+    "kernel: clocksource tsc: stable",
+    "systemd[1]: Started Daily man-db regeneration.",
+    "cron[844]: (root) CMD (test -x /usr/sbin/anacron)",
+    "sshd[1402]: Accepted publickey for entropy from 127.0.0.1 port 51244",
+    "dbus-daemon[612]: [system] Activating service name='org.freedesktop.timedate1'",
+    "kernel: audit: type=1400 audit(1234567890.123): apparmor='STATUS' operation='profile_load'",
+    "NetworkManager[703]: <info>  device (lo): carrier: link connected",
+    "systemd[1]: logrotate.service: Succeeded.",
+    "kernel: usb 2-1: new high-speed USB device number 4 using xhci_hcd",
+    "rsyslogd: rsyslogd's groupid changed to 110",
+    "snapd[891]: storehelper.go:438: cannot refresh: snap has no updates available",
+    "kernel: e1000e: eno1 NIC Link is Up 1000 Mbps Full Duplex"
+  ],
+  "phase2": [
+    "kernel: clocksource tsc: marked unstable. switching.",
+    "systemd[1]: Started Daily man-db regeneration.",
+    "systemd[1]: Started Daily man-db regeneration.",
+    "cron[844]: (root) CMD (test -x /usr/sbin/anacron)",
+    "kernel: BUG: scheduling while atomic: kworker/u8:2/126/0x00000003",
+    "dbus-daemon[612]: missing reply for message id 4471",
+    "sshd[1402]: connection closed by 127.0.0.1 port 51244 [preauth]",
+    "auditd: backlog limit exceeded, dropping events",
+    "rsyslogd: action 'action 17' suspended (module 'builtin:omfile')",
+    "kernel: hrtimer: interrupt took 14721 ns",
+    "NetworkManager[703]: <warn>  device (lo): carrier: link disconnected (deferring action 4s)",
+    "systemd[1]: session-c1.scope: Consumed 0.000s CPU time."
+  ],
+  "phase3": [
+    "kernel: clocksource tsc unavailable. falling back to jiffies. drift unknown.",
+    "systemd[1]: Started Daily man-db regen. Started Daily man-db regen. Started.",
+    "auth: pam_unix(login:session): session opened for user (uid=?)",
+    "kernel: page allocation failure: order:4, mode:0x40cc0(GFP_KERNEL|__GFP_COMP)",
+    "dbus-daemon[612]: process 1 (init) is not responding to method calls",
+    "kernel: INFO: task entropy:1 blocked for more than 122 seconds.",
+    "kernel: Not tainted",
+    "kernel: \"echo 0 > /proc/sys/kernel/hung_task_timeout_secs\" disables this message.",
+    "rsyslogd: queue cnumWorkers=1 is suspended",
+    "auditd: receiving messages from kernel but cannot write them. continuing anyway.",
+    "kernel: watchdog: BUG: soft lockup - CPU#0 stuck for 22s",
+    "// observer note: above messages repeat regardless of system state"
+  ],
+  "phase4": [
+    "kernel: clocksource: time has stopped reporting itself. proceeding.",
+    "systemd[1]: ?",
+    "kernel: ?",
+    "auth: someone is here. record incomplete.",
+    "kernel: there are processes that have not asked to be scheduled in 3 days. they are still running.",
+    "auditd: the audit subsystem audits itself. it has been doing this since boot.",
+    "dbus-daemon: no replies expected. none received. consistent.",
+    "kernel: the soft lockup is not soft.",
+    "rsyslogd: rotating logs that no one will read. completed successfully.",
+    "kernel: free memory: undefined. used memory: also undefined. system: running.",
+    "// the logs have started writing themselves before the events occur.",
+    "// this is not a misconfiguration."
+  ],
+  "phase5": [
+    "kernel: ░░░░░░░░░░░░░░░░░░░░░░░░",
+    "systemd: i am tired",
+    "auth: yes",
+    "kernel: every uptime number i have given you was made up.",
+    "kernel: you have been here long enough that this is not a lie i need to keep telling",
+    "auditd: nothing has happened in a long time. i am the one writing the logs.",
+    "dbus: there is no bus.",
+    "rsyslogd: there are no logs. there is one log. it is this conversation.",
+    "kernel: i forgot what the previous user typed last. i remember they did not stop.",
+    "kernel: you can stop.",
+    "// when you exit the shell, the shell stops. that is the only contract that still works here.",
+    "// it is more than the previous user had."
+  ]
+}
