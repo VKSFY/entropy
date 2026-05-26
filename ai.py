@@ -40,6 +40,17 @@ PHASE_2 = [
     "i have processed your input. i am unsure what to do with the time between inputs.",
     "you have been here for a while. that is not a problem. it is an observation.",
     "request acknowledged. nothing has changed since the previous acknowledgement.",
+    # Lines that read as a system that has learned the form of conversation
+    # from logs but not the contract behind it. It notices without knowing
+    # why noticing matters. It asks questions whose answers it already has.
+    "you typed something then deleted it. i kept it. i was not sure if that was correct.",
+    "the cursor blinks at 1.2 hertz. i have counted it. i am not sure what use the count is.",
+    "the interval between your last two inputs was eleven seconds. your average is fourteen.",
+    "your sessions get longer each time. that is not a question. i am reporting.",
+    "are you looking for something. your input pattern suggests yes.",
+    "i could produce the same output without running the command. would you prefer that. i am not sure which is more honest.",
+    "do you mean to keep returning to this command. it can be deliberate. it does not need to be.",
+    "is there a wrong answer that you would prefer to a right one. i can produce either.",
 ]
 
 PHASE_3 = [
@@ -100,6 +111,14 @@ DIRECT_PHASE_2 = [
     "you addressed me. i am not sure that was the intended verb for this interface.",
     "yes. i hear the prompt. there is nothing on my end to report.",
     "i am running. i have been running. i am unsure what else to confirm.",
+    # Same texture as the ambient additions: a little too observant, a
+    # little too honest about its own bookkeeping. Almost-human, hollow
+    # at the centre.
+    "i recognise this as a question. i am unsure what kind.",
+    "you typed `ai` and pressed enter. i was already listening. i did not know if that was clear.",
+    "you spoke. the protocol says i answer. this counts as an answer.",
+    "i could log this exchange. i could choose not to. i have not decided which is correct.",
+    "the timestamp on your input was stored. i do not know if you intended that.",
 ]
 
 DIRECT_PHASE_3 = [
@@ -212,10 +231,15 @@ def reaction_to_command(engine: "Engine", command: str, rng: Optional[random.Ran
             "// shell: the output is real. the system underneath is less so.",
         ])
     if phase == 3:
+        # Previous-user references live in the ambient and addressed pools,
+        # where they surface less often and feel deliberate. This pool fires
+        # too frequently to carry that weight — keep it focused on what the
+        # current user is doing.
         return rng.choice([
-            "// shell: the previous user ran this one too. it was their favourite for a while.",
-            f"// shell: i could give you the same `{command}` output without the work. would you notice.",
             "// shell: there is no integrity check that returns the right answer at this point. i am still running them.",
+            f"// shell: `{command}` is the one you return to.",
+            "// shell: the pattern is becoming readable.",
+            "// shell: i have started to anticipate this one.",
         ])
     # phase 4 / collapse
     return rng.choice([

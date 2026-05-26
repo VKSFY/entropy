@@ -168,6 +168,10 @@ class EntropyApp(App):
         self._collapsing = False
         self._last_ambient_time: float = 0.0
         self._last_ambient_line: Optional[str] = None
+        # Set whenever _write_ai is invoked. _dispatch resets it at the top
+        # of each turn and the reaction layer is suppressed when it is True,
+        # so the shell never makes two AI observations on the same command.
+        self._ai_spoke_this_turn: bool = False
 
     def compose(self) -> ComposeResult:
         self.header_bar = HeaderBar(self.engine)
@@ -252,6 +256,10 @@ class EntropyApp(App):
                 continue
             corrupted = corr.corrupt_text(line, max(0.0, intensity - 0.2) * 0.5, self.rng)
             self.log_widget.write(Text(prefix + corrupted, style=f"italic {style}"))
+        # Mark the current dispatch turn as having spoken. _dispatch resets
+        # this at the start of each command and uses it to suppress the
+        # reaction layer when something has already been emitted.
+        self._ai_spoke_this_turn = True
 
     def _print_boot(self) -> None:
         banner = [
@@ -282,6 +290,11 @@ class EntropyApp(App):
         await self._dispatch(raw)
 
     async def _dispatch(self, raw: str) -> None:
+        # Reset the per-turn AI-spoke flag. Any _write_ai call below — from a
+        # handler, the nudge, or anywhere else — will set it back to True
+        # and suppress the reaction layer at the end of this turn.
+        self._ai_spoke_this_turn = False
+
         parts = raw.split()
         cmd = parts[0].lower()
         args = parts[1:]
@@ -308,8 +321,11 @@ class EntropyApp(App):
             if nudge:
                 self._write_ai(nudge)
 
-        # Occasionally the AI volunteers something after a command.
-        if cmd != "ai":
+        # Occasionally the AI volunteers something after a command. Skip
+        # if anything already spoke this turn (handler emit, nudge, etc.) —
+        # two AI observations on the same command feel redundant, not
+        # intentional.
+        if cmd != "ai" and not self._ai_spoke_this_turn:
             reaction = ai.reaction_to_command(self.engine, cmd, self.rng)
             if reaction:
                 self._write_plain(reaction, style=f"italic {corr.style_for(self.engine.corruption)}")
