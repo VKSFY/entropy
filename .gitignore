@@ -1,0 +1,4 @@
+~/.entropy_state.json
+__pycache__/
+*.pyc
+.claude/
